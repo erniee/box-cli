@@ -15,5 +15,6 @@ for i in ${userList[@]}; do
 	idList+=( $idSearch )
 done
 
-
 for i in ${idList[@]}; do
+  blah
+done
