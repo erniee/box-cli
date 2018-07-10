@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 #LIST=`for i in $(cat test.txt ) ; do box users search $i | grep \"id\" | awk -F '"' '{print $4}'; done`
-
-
 #for i in $(cat $LIST) ; do box users delete -f -y $i ; done
-
 #Create list of user accounts from text file
-declare -a userList=`cat test.txt`
+
+fileItemSTring=$(cat test.txt |tr "\n" " ")
+
+declare -a userList=($fileItemString)
 
 declare -a idList=()
 
@@ -16,5 +16,5 @@ for i in ${userList[@]}; do
 done
 
 for i in ${idList[@]}; do
-  blah
+  box users delete -f -y $i
 done
