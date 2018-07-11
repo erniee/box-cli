@@ -11,6 +11,7 @@ declare -a userList=($fileItemString)
 declare -a idList=()
 
 for i in ${userList[@]}; do
+  :
 	idSearch=$(do box users search $i | grep \"id\" | awk -F '"' '{print $4}')
 	idList+=( $idSearch )
 done
