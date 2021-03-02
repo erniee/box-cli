@@ -6,7 +6,7 @@ for i in $list
 #for i in "${list[@]}"
 do
   :
-  List=$(box users search $i | grep \"id\" | awk -F '"' '{print $4}')
+  List=$(box users:search $i | grep \"id\" | awk -F '"' '{print $4}')
   idList+=( $List )
 done
 
@@ -16,5 +16,5 @@ for j in ${idList[@]}
 do
   :
   echo "I am deleting this user id" $j
-  box users delete -f -y $j
+  box users:update -y $j --remove
 done
